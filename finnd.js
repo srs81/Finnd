@@ -1,8 +1,27 @@
 var INTERVAL = 20000;
 
+var myLatlng = new google.maps.LatLng(-25.363882,131.044922);
+var myOptions = {
+      zoom: 4,
+      center: myLatlng,
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+}
+var map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
+
 function updatePos() {
     $.ajax( fdAjaxUrl, function (data) {
-      $("#updated").html(data);
+      objs = $.parseJSON(data);
+      $("#updated").html(objs);
+      var locs;
+      $.each(objs, function(key, value) {
+        locs = value.split(",");
+        new google.maps.Marker({
+          position: new google.maps.LatLng(locs[0], locs[1]), 
+          map: map,
+          title: key
+        });   
+      });
+      map.setCenter(new google.maps.LatLng(locs[0], locs[1]));
     });
 }
 //Check if browser supports W3C Geolocation API
