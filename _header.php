@@ -7,6 +7,7 @@
 	form { display: inline; clear: none }
 	</style>
 	<title>Finnd</title>
+	<meta name="viewport" content="width=device-width" >
 </head>
 <body>
 	<? // Start header ?>
