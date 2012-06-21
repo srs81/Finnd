@@ -8,28 +8,35 @@ var myOptions = {
       mapTypeId: google.maps.MapTypeId.ROADMAP
 }
 var map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
+var markers = {};
+var markersLoc = {};
 
 function updatePos() {
+    var bounds = new google.maps.LatLngBounds();
+    var locs; 
     $.post( fdAjaxUrl, { name: fdName, latitude: lat, longitude: lon }, 
       function (data) {
-      objs = $.parseJSON(data);
-      var locs;
       var users = "";
-      var bounds = new google.maps.LatLngBounds(); 
+      objs = $.parseJSON(data);
       $.each(objs, function(key, value) {
-        locs = value.split(",");
         users += key + ", "
+        if (markersLoc[key]) 
+          if (markersLoc[key] === value)  
+            return true;
+        markersLoc[key] = value;
+        locs = value.split(",");
         gLoc = new google.maps.LatLng(locs[0], locs[1])
-        bounds.extend(gLoc)
-        new google.maps.Marker({
+        bounds.extend(gLoc);
+        if (markers[key]) { markers[key].setMap(null); }
+        markers[key] = new google.maps.Marker({
           position: gLoc, 
           map: map,
           title: key
         });   
       });
       $("#updated").html("Current users: " + users);
-      map.fitBounds(bounds); 
-//      map.setCenter(new google.maps.LatLng(locs[0], locs[1]));
+//      map.fitBounds(bounds); 
+      map.setCenter(new google.maps.LatLng(locs[0], locs[1]));
    });
 }
 //Check if browser supports W3C Geolocation API
