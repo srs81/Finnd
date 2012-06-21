@@ -7,11 +7,10 @@
 	form { display: inline; clear: none }
 	</style>
 	<title>Finnd</title>
+	<link href="style.css" rel="stylesheet" type="text/css" />
 	<meta name="viewport" content="width=device-width" >
 </head>
 <body>
-	<? // Start header ?>
-	<div id="header">
 <? 
 if (!isset($_SESSION['name'])) {
 	$_SESSION['name'] = "User #" . rand(0,100);
@@ -23,11 +22,10 @@ if (isset($_GET['session'])) {
 	$sessionu = "?session=" . $_GET['session'];
 }
 ?>
-	<b><? echo $fdName ?></b> [<a href="change_name.php<? echo $sessionu ?>">Change Name</a>]
-	</div>
+	<? // Start header ?>
+	<div id="header">Finnd</div>
 	<?
 	// End the header
-
 	// Start main body
 	?>
 	<div id="container">

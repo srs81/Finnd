@@ -1,0 +1,27 @@
+html, body {
+  font-family: Verdana, Arial, sans-serif;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+
+#header, #footer {
+  background-color: #B8860B;
+  padding: 4px 10px;
+  color: white;
+}
+
+#header {
+  font-size: 120%;
+  margin-bottom: 4px;
+}
+
+#footer {
+  margin-top: 4px;
+  font-size: 75%;
+}
+
+#map_canvas {
+  height: 75%;
+}
+
