@@ -15,7 +15,6 @@ Or tell your friends to enter this session number: <b><? echo $fdSession ?></b> 
 
 <script type="text/javascript">
 var fdAjaxUrl = "location.php?session=<?php echo $fdSession ?>";
-var fdName = "<?php echo $fdName ?>";
 </script>
 
 <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>

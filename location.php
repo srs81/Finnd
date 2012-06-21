@@ -7,8 +7,8 @@ $redis = new Predis\Client(array(
 
 $session = $_GET['session'];
 
-if (isset($_POST['name']) && isset($_POST['latitude'])) {
-	$name = $_POST['name'];
+if (isset($_POST['longitude']) && isset($_POST['latitude'])) {
+	$name = $_COOKIE['name'];
 	$latitude = $_POST['latitude'];
 	$longitude = $_POST['longitude'];
 	$redis->hset($session, $name, $latitude . "," . $longitude);

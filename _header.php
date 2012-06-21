@@ -1,4 +1,3 @@
-<? session_start() ?>
 <? include ("_common.php") ?>
 <html>
 <head>
@@ -12,10 +11,10 @@
 </head>
 <body>
 <? 
-if (!isset($_SESSION['name'])) {
-	$_SESSION['name'] = "User #" . rand(0,100);
+if (!isset($_COOKIE['name'])) {
+        setcookie('name', "User #" . rand(0,100));
 }
-$fdName = $_SESSION['name'];
+$fdName = $_COOKIE['name'];
 
 $sessionu = "";
 if (isset($_GET['session'])) {

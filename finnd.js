@@ -11,7 +11,7 @@ var markersLoc = {};
 
 function updatePos() {
     var bounds = new google.maps.LatLngBounds();
-    $.post( fdAjaxUrl, { name: fdName, latitude: lat, longitude: lon }, 
+    $.post( fdAjaxUrl, { latitude: lat, longitude: lon }, 
       function (data) {
       var locs; 
       var users = "";
