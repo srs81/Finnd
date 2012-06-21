@@ -13,11 +13,15 @@ var markersLoc = {};
 
 function updatePos() {
     var bounds = new google.maps.LatLngBounds();
-    var locs; 
     $.post( fdAjaxUrl, { name: fdName, latitude: lat, longitude: lon }, 
       function (data) {
+      var locs; 
       var users = "";
       objs = $.parseJSON(data);
+      $.each(markersLoc, function(k, v) {
+        if (objs[k]) return true;
+        if (markers[k]) { markers[k].setMap(null); }
+      }); 
       $.each(objs, function(key, value) {
         users += key + ", "
         if (markersLoc[key]) 
@@ -36,7 +40,7 @@ function updatePos() {
       });
       $("#updated").html("Current users: " + users);
 //      map.fitBounds(bounds); 
-      map.setCenter(new google.maps.LatLng(locs[0], locs[1]));
+      map.setCenter(new google.maps.LatLng(lat, lon));
    });
 }
 //Check if browser supports W3C Geolocation API
