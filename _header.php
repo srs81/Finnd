@@ -1,5 +1,16 @@
-<? session_start() ?>
-<? include ("_common.php") ?>
+<? 
+session_start();
+
+$sessionu = "";
+if (isset($_GET['session'])) {
+	$sessionu = "?session=" . $_GET['session'];
+}
+if (!(isset($_SESSION['name']))) {
+	header ("Location: /change_name.php$sessionu");
+}
+include ("_common.php");
+$fdName = $_SESSION['name']; 
+?>
 <html>
 <head>
 	<script src="jquery.js"></script>
@@ -12,18 +23,6 @@
 <body>
 	<? // Start header ?>
 	<div id="header">
-<? 
-if (!isset($_SESSION['name'])) {
-	$_SESSION['name'] = "User #" . rand(0,100);
-}
-$fdName = $_SESSION['name'];
-
-$sessionu = "";
-if (isset($_GET['session'])) {
-	$sessionu = "?session=" . $_GET['session'];
-}
-?>
-	<b><? echo $fdName ?></b> [<a href="change_name.php<? echo $sessionu ?>">Change Name</a>]
 	</div>
 	<?
 	// End the header
