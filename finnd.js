@@ -37,12 +37,8 @@ function updatePos() {
         });   
       });
       $("#updated").html("Current users: " + users);
-      if (markers.length > 1) {
-        map.fitBounds(bounds); 
-      } else {
-        map.setCenter(new google.maps.LatLng(lat, lon));
-        map.setZoom(18);
-      }
+//      map.fitBounds(bounds); 
+      map.setCenter(new google.maps.LatLng(lat, lon));
    });
 }
 //Check if browser supports W3C Geolocation API
