@@ -22,6 +22,11 @@ html, body {
 }
 
 #map_canvas {
-  height: 75%;
+  height: 70%;
 }
 
+#shareinfo {
+  display: none;
+  padding: 3px;
+  background-color: #E8E69B;
+}

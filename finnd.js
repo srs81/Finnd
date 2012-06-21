@@ -1,10 +1,8 @@
 var INTERVAL = 3000;
 var lat, lon;
 
-var myLatlng = new google.maps.LatLng(-25.363882,131.044922);
 var myOptions = {
       zoom: 18,
-      center: myLatlng,
       mapTypeId: google.maps.MapTypeId.ROADMAP
 }
 var map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
@@ -57,4 +55,9 @@ function successFunction(position) {
 function errorFunction(position) {
     alert('Error trying to get your location!');
 }
-setInterval(updatePos, INTERVAL);
+$(function() {
+  setInterval(updatePos, INTERVAL);
+  $("#sharebutton").click(function() {
+    $("#shareinfo").slideToggle();
+  });
+});
