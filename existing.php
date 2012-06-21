@@ -1,7 +1,7 @@
 <link href="map.css" rel="stylesheet" type="text/css" />
 <? $fdSession = $_GET['session']; ?>
 <div id="sharebutton">Finnd URL: 
-<form><input type="text" value="<? echo "http://" . $_SERVER['HTTP_HOST'] . '/?session=' . $fdSession ?>" readonly="readonly" size="36">
+<form><input type="text" value="<? echo "http://" . $_SERVER['HTTP_HOST'] . fdSessionUrl($fdSession) ?>" readonly="readonly" size="16">
 </input></form>
 </div>
 
