@@ -8,4 +8,4 @@
 	Or create a new session!<br/> 
 	<input type="submit" value="Create!">
 </form>
-<p>
+<p>Finnd is a fun and easy way to share location with your close group of friends, and help you find each other easily.</p>

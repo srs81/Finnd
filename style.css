@@ -21,6 +21,10 @@ html, body {
   font-size: 75%;
 }
 
+#container {
+  font-size: 80%;
+}
+
 #map_canvas {
   height: 70%;
 }
