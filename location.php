@@ -17,7 +17,7 @@ if (isset($_POST['name']) && isset($_POST['latitude'])) {
 
 $times = $redis->hgetall($session . "_timestamp");
 foreach ($times as $key=>$value) { 
-	if (time() - $value > 60) { 
+	if (time() - $value > 12) { 
 		$redis->hdel($session . "_timestamp", $key);
 		$redis->hdel($session, $key);
 	}
