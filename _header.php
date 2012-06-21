@@ -1,4 +1,9 @@
-<? include ("_common.php") ?>
+<? 
+require_once ("_common.php");
+if (!isset($_COOKIE['name'])) {
+	header ("Location: /change_name.php");
+}
+?>
 <html>
 <head>
 	<script src="jquery.js"></script>
@@ -11,9 +16,6 @@
 </head>
 <body>
 <? 
-if (!isset($_COOKIE['name'])) {
-        setcookie('name', "User #" . rand(0,100));
-}
 $fdName = $_COOKIE['name'];
 
 $sessionu = "";

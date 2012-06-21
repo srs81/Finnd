@@ -30,3 +30,7 @@ html, body {
   padding: 3px;
   background-color: #E8E69B;
 }
+
+input {
+  font-size: 125%;
+}

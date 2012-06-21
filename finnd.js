@@ -21,7 +21,7 @@ function updatePos() {
         if (markers[k]) { markers[k].setMap(null); }
       }); 
       $.each(objs, function(key, value) {
-        users += key + ", "
+        users += key + " "
         if (markersLoc[key]) 
           if (markersLoc[key] === value)  
             return true;
@@ -36,7 +36,7 @@ function updatePos() {
           title: key
         });   
       });
-      $("#updated").html("Current users: " + users);
+      $("#updated").html("<b>Current users:</b> " + users);
 //      map.fitBounds(bounds); 
       map.setCenter(new google.maps.LatLng(lat, lon));
    });
