@@ -1,4 +1,4 @@
-<form action="index.php" method="GET">
+<form action="redirect.php" method="GET">
 	Join existing session:<br/> 
 	<input type="text" name="session"><br/>
 	<input type="submit" value="Join!">
