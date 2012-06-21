@@ -15,17 +15,21 @@ function updatePos() {
       objs = $.parseJSON(data);
       var locs;
       var users = "";
+      var bounds = new google.maps.LatLngBounds(); 
       $.each(objs, function(key, value) {
         locs = value.split(",");
         users += key + ", "
+        gLoc = new google.maps.LatLng(locs[0], locs[1])
+        bounds.extend(gLoc)
         new google.maps.Marker({
-          position: new google.maps.LatLng(locs[0], locs[1]), 
+          position: gLoc, 
           map: map,
           title: key
         });   
       });
       $("#updated").html("Current users: " + users);
-      map.setCenter(new google.maps.LatLng(locs[0], locs[1]));
+      map.fitBounds(bounds); 
+//      map.setCenter(new google.maps.LatLng(locs[0], locs[1]));
    });
 }
 //Check if browser supports W3C Geolocation API
