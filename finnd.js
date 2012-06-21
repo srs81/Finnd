@@ -54,6 +54,7 @@ function successFunction(position) {
 }
 function errorFunction(position) {
     alert('Error trying to get your location!');
+    map.setCenter(new google.maps.LatLng("43", "-78"));
 }
 $(function() {
   setInterval(updatePos, INTERVAL);
