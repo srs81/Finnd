@@ -21,7 +21,7 @@ function updatePos() {
         if (objs[k]) return true;
         if (markers[k]) { 
           markers[k].setMap(null);
-          $("#updated").html(k + " left the session.").css({backgroundColor:'red'}).slideDown();
+          $("#updated").html(k + " left the session.").css({backgroundColor:'pink'}).slideDown();
         }
       }); 
       $.each(objs, function(key, value) {
@@ -38,13 +38,15 @@ function updatePos() {
         gLoc = new google.maps.LatLng(locs[0], locs[1])
         bounds.extend(gLoc);
         markers[key] = new google.maps.Marker({
-          position: gLoc, 
-          map: map,
-          title: key
+          position: gLoc, map: map, title: key
         });   
       });
-//      map.fitBounds(bounds); 
-      map.setCenter(new google.maps.LatLng(lat, lon));
+      if (pointCount > 1) {
+        map.fitBounds(bounds);
+      } else {
+        map.setCenter(new google.maps.LatLng(lat, lon));
+        map.setZoom(18);
+      }
    });
 }
 //Check if browser supports W3C Geolocation API
