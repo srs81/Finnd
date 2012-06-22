@@ -41,7 +41,7 @@ function updatePos() {
           position: gLoc, map: map, title: key
         });   
       });
-      if (pointCount > 1) {
+      if (markers.length > 1) {
         map.fitBounds(bounds);
       } else {
         map.setCenter(new google.maps.LatLng(lat, lon));
