@@ -21,7 +21,7 @@ function updatePos() {
         if (objs[k]) return true;
         if (markers[k]) { 
           markers[k].setMap(null);
-          $("#updated").html(k + " left the session.").css({backgroundColor:'red').slideDown();
+          $("#updated").html(k + " left the session.").css({backgroundColor:'red'}).slideDown();
         }
       }); 
       $.each(objs, function(key, value) {
@@ -30,7 +30,7 @@ function updatePos() {
           if (markersLoc[key] === value)  
             return true;
           else
-            $("#updated").html(k + " joined the session.").css({backgroundColor: 'green').slideDown();
+            $("#updated").html(k + " joined the session.").css({backgroundColor: 'green'}).slideDown();
         if (markers[key]) { markers[key].setMap(null); }
         markersLoc[key] = value;
 

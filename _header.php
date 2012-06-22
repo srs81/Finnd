@@ -1,8 +1,14 @@
 <? 
 require_once ("_common.php");
+$sessionu = "";
+if (isset($_GET['session'])) {
+	$sessionu = "?session=" . $_GET['session'];
+}
 if (!isset($_COOKIE['name'])) {
         setcookie('name', "User #" . rand(0,100));
+        header ("Location: /change_name.php" . $sessionu);
 }
+$fdName = $_COOKIE['name'];
 ?>
 <html>
 <head>
@@ -15,14 +21,6 @@ if (!isset($_COOKIE['name'])) {
 	<meta name="viewport" content="width=device-width" >
 </head>
 <body>
-<? 
-$fdName = $_COOKIE['name'];
-
-$sessionu = "";
-if (isset($_GET['session'])) {
-	$sessionu = "?session=" . $_GET['session'];
-}
-?>
 	<? // Start header ?>
 	<div id="header">Finnd</div>
 	<?

@@ -8,7 +8,11 @@ if (isset($_POST['setmyname'])) {
 include ("_header.php");
 ?>
 
-<p><i>Please enter your visible user name to use Finnd. If this is your first time, we have created a random, anonymous username for you.</i></p>
+<p><i>Please enter your visible user name to use Finnd. 
+<? if (strpos($fdName, "ser #") > 0) { ?>
+If this is your first time, we have created a random, anonymous username for you.
+<? } ?>
+</i></p>
 <form action="change_name.php<? echo $sessionu ?>" method="POST">
 <input type="text" name="setmyname" value="<?php if (isset($_COOKIE['name'])) { echo $_COOKIE['name']; } ?>">
 <input type="submit" value="Set my name">
