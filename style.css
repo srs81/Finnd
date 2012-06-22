@@ -38,3 +38,7 @@ html, body {
 input {
   font-size: 125%;
 }
+
+#updated {
+  padding: 4px;
+}

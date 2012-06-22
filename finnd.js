@@ -10,6 +10,7 @@ var markers = {};
 var markersLoc = {};
 
 function updatePos() {
+    $("#updated").hide();
     var bounds = new google.maps.LatLngBounds();
     $.post( fdAjaxUrl, { latitude: lat, longitude: lon }, 
       function (data) {
@@ -18,25 +19,30 @@ function updatePos() {
       objs = $.parseJSON(data);
       $.each(markersLoc, function(k, v) {
         if (objs[k]) return true;
-        if (markers[k]) { markers[k].setMap(null); }
+        if (markers[k]) { 
+          markers[k].setMap(null);
+          $("#updated").html(k + " left the session.").css({backgroundColor:'red').slideDown();
+        }
       }); 
       $.each(objs, function(key, value) {
         users += key + " "
         if (markersLoc[key]) 
           if (markersLoc[key] === value)  
             return true;
+          else
+            $("#updated").html(k + " joined the session.").css({backgroundColor: 'green').slideDown();
+        if (markers[key]) { markers[key].setMap(null); }
         markersLoc[key] = value;
+
         locs = value.split(",");
         gLoc = new google.maps.LatLng(locs[0], locs[1])
         bounds.extend(gLoc);
-        if (markers[key]) { markers[key].setMap(null); }
         markers[key] = new google.maps.Marker({
           position: gLoc, 
           map: map,
           title: key
         });   
       });
-      $("#updated").html("<b>Current users:</b> " + users);
 //      map.fitBounds(bounds); 
       map.setCenter(new google.maps.LatLng(lat, lon));
    });
