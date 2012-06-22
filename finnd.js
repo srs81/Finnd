@@ -53,7 +53,7 @@ function updatePos() {
 if (navigator.geolocation) {
     navigator.geolocation.watchPosition(successFunction, errorFunction);
 } else {
-    alert('It appears that Geolocation, which is required for this web page application, is not enabled in your browser. Please use a browser which supports the Geolocation API.');
+    $("#updated").html('It appears that Geolocation, which is required for this web page application, is not enabled in your browser. Please use a browser which supports the Geolocation API.').show();
 }
 function successFunction(position) {
     lat = position.coords.latitude;
@@ -61,7 +61,7 @@ function successFunction(position) {
     updatePos();
 }
 function errorFunction(position) {
-    alert('Error trying to get your location!');
+    $("#updated").html("We had an error obtaining your location! Please allow Finnd to see your location to use this application. Your location data is deleted when you leave the session.").css({backgroundColor:'pink'}).show();
     map.setCenter(new google.maps.LatLng("43", "-78"));
 }
 $(function() {
