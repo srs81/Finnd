@@ -5,9 +5,6 @@ if (isset($_POST['setmyname'])) {
 	$sessionu = isset($_GET['session']) ? $_GET['session'] : "";
 	header ("Location: " . fdSessionUrl($sessionu));
 }
-if (!isset($_COOKIE['name'])) {
-        setcookie('name', "User #" . rand(0,100));
-}
 include ("_header.php");
 ?>
 

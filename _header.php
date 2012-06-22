@@ -1,7 +1,7 @@
 <? 
 require_once ("_common.php");
 if (!isset($_COOKIE['name'])) {
-	header ("Location: /change_name.php");
+        setcookie('name', "User #" . rand(0,100));
 }
 ?>
 <html>
