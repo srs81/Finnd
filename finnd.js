@@ -21,16 +21,19 @@ function updatePos() {
         if (objs[k]) return true;
         if (markers[k]) { 
           markers[k].setMap(null);
+          delete markers[k];
           $("#updated").html(k + " left the session.").css({backgroundColor:'pink'}).slideDown();
         }
       }); 
       $.each(objs, function(key, value) {
         users += key + " "
-        if (markersLoc[key]) 
-          if (markersLoc[key] === value)  
+        if (markersLoc[key]) {
+          if (markersLoc[key] === value) {
             return true;
-          else
-            $("#updated").html(k + " joined the session.").css({backgroundColor: 'green'}).slideDown();
+          }
+        } else {
+          $("#updated").html(key + " joined the session.").css({backgroundColor: 'GreenYellow'}).slideDown();
+        }
         if (markers[key]) { markers[key].setMap(null); }
         markersLoc[key] = value;
 
