@@ -3,6 +3,7 @@ html, body {
   text-align: center;
   margin: 0;
   padding: 0;
+  background-color: #F8F6DB;
 }
 
 #header, #footer {
@@ -16,9 +17,17 @@ html, body {
   margin-bottom: 4px;
 }
 
+#header a {
+  color: white;
+  text-decoration: none;
+}
 #footer {
   margin-top: 4px;
   font-size: 75%;
+}
+
+#footer a {
+  color: white;
 }
 
 #container {
@@ -26,12 +35,15 @@ html, body {
 }
 
 #map_canvas {
-  height: 70%;
+  height: 72%;
+  width: 92%;
+  margin: 2px 4%;
 }
 
-#shareinfo {
+.info {
   display: none;
-  padding: 3px;
+  padding: 5px;
+  margin-top: 5px;
   background-color: #E8E69B;
 }
 
@@ -39,6 +51,7 @@ input {
   font-size: 125%;
 }
 
-#updated {
-  padding: 4px;
+#message {
+  padding: 5px;
+  margin-top: 5px;
 }
