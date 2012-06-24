@@ -14,7 +14,7 @@ You can also use the random, anonymous username we have created for you.
 <? } ?>
 </i></p>
 <form action="change_name.php<? echo $sessionu ?>" method="POST">
-<input type="text" name="setmyname" value="<?php if (isset($_COOKIE['name'])) { echo $_COOKIE['name']; } ?>">
+<input type="text" name="setmyname" value="<?php if (isset($_COOKIE['name'])) { echo $_COOKIE['name']; } ?>" size="10">
 <input type="submit" value="Set my name">
 </form>
 

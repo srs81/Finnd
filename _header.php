@@ -18,7 +18,7 @@ $fdName = $_COOKIE['name'];
 	<style type="text/css">
 	form { display: inline; clear: none }
 	</style>
-	<title>Finnd</title>
+	<title>Finnd Us | Mobile Friend Finder App</title>
 	<link href="style.css" rel="stylesheet" type="text/css" />
 	<meta name="viewport" content="width=device-width" >
 </head>
