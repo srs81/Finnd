@@ -14,7 +14,7 @@ html, body {
 
 #header {
   font-size: 120%;
-  margin-bottom: 4px;
+  margin-bottom: 6px;
 }
 
 #header a {
@@ -22,7 +22,7 @@ html, body {
   text-decoration: none;
 }
 #footer {
-  margin-top: 4px;
+  margin: 6px 0;
   font-size: 75%;
 }
 
@@ -32,12 +32,12 @@ html, body {
 
 #container {
   font-size: 80%;
+  margin: 2px 4%;
 }
 
 #map_canvas {
   height: 72%;
-  width: 92%;
-  margin: 2px 4%;
+  width: 100%;
 }
 
 .info {

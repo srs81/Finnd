@@ -5,11 +5,12 @@ if (isset($_GET['session'])) {
 	$sessionu = "?session=" . $_GET['session'];
 }
 if (!isset($_COOKIE['name'])) {
-	$fdName = "User #" . rand(0,100);
+        $fdName = "User #" . rand(0,100);
         setcookie('name', $fdName);
-} else {
-	$fdName = $_COOKIE['name'];
+	header ("Location: change_name.php$sessionu");
 }
+
+$fdName = $_COOKIE['name'];
 ?>
 <html>
 <head>

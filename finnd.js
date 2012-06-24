@@ -73,10 +73,12 @@ $(function() {
   setInterval(updatePos, INTERVAL);
   $("#sharebutton").click(function(e) {
     e.preventDefault();
+    $("#usersinfo").slideUp();
     $("#shareinfo").slideToggle();
   });
   $("#usersbutton").click(function(e) {
     e.preventDefault();
+    $("#shareinfo").slideUp();
     $("#usersinfo").slideToggle();
   });
 });
