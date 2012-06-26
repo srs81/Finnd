@@ -7,7 +7,10 @@ if (isset($_GET['session'])) {
 if (!isset($_COOKIE['name'])) {
         $fdName = "User #" . rand(0,100);
         setcookie('name', $fdName);
-	header ("Location: change_name.php$sessionu");
+	if ($sessionu === "") 
+		header ("Location: /");
+	else
+		header ("Location: change_name.php$sessionu");
 }
 
 $fdName = $_COOKIE['name'];
