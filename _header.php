@@ -21,9 +21,12 @@ $fdName = $_COOKIE['name'];
 	<style type="text/css">
 	form { display: inline; clear: none }
 	</style>
-	<title>Finnd Us | Mobile Friend Finder App</title>
+	<title>Finnd Us | Mobile Friend Location Finder</title>
 	<link href="style.css" rel="stylesheet" type="text/css" />
 	<meta name="viewport" content="width=device-width" >
+<? if (strlen($sessionu) > 2) { ?>
+	<meta name="robots" content="noindex,nofollow">
+<? } ?>
 </head>
 <body>
 	<? // Start header ?>
